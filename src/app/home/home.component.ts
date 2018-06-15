@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../products.services/products.services';
 import { Products } from '../shared/product';
+import { CanComponentDeactivate } from '../shared/can-deactivate-guard.service';
+import { Observable } from 'rxjs/index';
 
 
 @Component({
@@ -8,9 +10,8 @@ import { Products } from '../shared/product';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, CanComponentDeactivate {
   public products: Products[];
-  public searchText = '';
   public categories;
   public newCategories;
   constructor( private productsService: ProductsService) {
@@ -56,4 +57,9 @@ export class HomeComponent implements OnInit {
     });
     return Object.keys(obj);
   }
+
+  canDeactivate() : Observable<boolean> | boolean {
+    return confirm("Do you want to exit?")
+  };
+
 }

@@ -1,6 +1,6 @@
 <nav class="nav">
   <ul class="nav__list">
-    <li routerLink="/" class="nav__list-item">
+    <li routerLink="/" (click)="goToCategories()" class="nav__list-item">
       <a routerLink="/" class="nav__list-item__link">Home</a>
     </li>
     <li [routerLink]="['categories', 'all']" class="nav__list-item">

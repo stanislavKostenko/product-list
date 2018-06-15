@@ -17,6 +17,7 @@ import { ProductsService } from './products.services/products.services';
 import { FilterComponent } from './filter/filter.component';
 import { HomeComponent } from './home/home.component';
 import { CategoryComponent } from './home/category/category.component';
+import { CanDeactivateGuardService } from './shared/can-deactivate-guard.service';
 
 
 
@@ -27,7 +28,12 @@ const categoryChildrenRoute: Routes = [
 
 const routes: Routes = [
   {path: 'about', loadChildren: './about/about.module#AboutModule'},
-  {path: 'categories', component: HomeComponent, children: categoryChildrenRoute },
+  {
+    path: 'categories',
+    component: HomeComponent,
+    children: categoryChildrenRoute,
+    canDeactivate: [CanDeactivateGuardService]
+  },
   {path: '', redirectTo: 'categories/all', pathMatch: 'full'},
 
 ];
@@ -54,7 +60,7 @@ const routes: Routes = [
     HomeComponent,
     CategoryComponent,
   ],
-  providers: [ ProductsService ],
+  providers: [ ProductsService, CanDeactivateGuardService ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
