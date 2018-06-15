@@ -1,0 +1,34 @@
+.filter {
+  padding: 3rem;
+  min-width: 250px;
+}
+
+.filter__list {
+  list-style: none;
+  font-size: 1.2rem;
+  font-family: "Roboto", sans-serif;
+  color: #929292;
+}
+
+.filter__list-item {
+  width: 100%;
+  padding: 1rem 0.5rem;
+  line-height: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.selected {
+  background-color: #b244ff;
+  color: #FFFFFF;
+  border-radius: 0.5rem;
+  outline: none;
+}
+
+.filter__list-item:hover {
+  cursor: pointer;
+  background-color: #b244ff;
+  color: #FFFFFF;
+  transition: 1s;
+}
+
+

@@ -1,0 +1,23 @@
+<div class="filter">
+  <ul class="filter__list" *ngIf="newCategories.length">
+    <li
+      (click)="toggle()"
+      [routerLink]="['all']"
+      [routerLinkActive]="['selected']"
+      [queryParams]="{'searchParam': searchParam}"
+      class="filter__list-item">
+
+      All categories
+    </li>
+    <li
+      [routerLinkActive]="['selected']"
+      [routerLink]="[category.name]"
+      [queryParams]="{'searchParam': searchParam}"
+      class="filter__list-item"
+      *ngFor="let category of newCategories">
+
+      <span class="filter__list-item__name">{{category.name}}</span>
+
+    </li>
+  </ul>
+</div>

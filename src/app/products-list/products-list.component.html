@@ -1,0 +1,19 @@
+<div class="list-wrapper">
+  <div class="product-list" *ngIf="products.length">
+    <div class="product-list__item" *ngFor="let product of products | search: searchText">
+      <div class="product-list__item__image-wrapper">
+        <img class="product-list__item__image" [src]="product.img" alt="Image">
+      </div>
+      <div class="product-list__item__content">
+        <span mat-line class="product-list__item__content__name">{{product.name}}</span>
+        <span mat-line class="product-list__item__content__code">Code: {{ product.asin }}</span>
+        <span mat-line class="product-list__item__content__price">Price: {{ product.price }}</span>
+        <span mat-line class="product-list__item__content__category">Category: {{ product.bsr_category }}</span>
+        <a mat-line class="product-list__item__content__link" href={{product.link}}>Link to</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

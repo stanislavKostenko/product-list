@@ -1,0 +1,28 @@
+.category-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-left: 3rem;
+  margin-top: 2rem;
+}
+
+mat-form-field {
+  max-width: 900px;
+  width: 100%;
+}
+
+.search {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.search__field {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  color: #8d8788;
+}

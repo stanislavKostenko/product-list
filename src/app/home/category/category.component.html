@@ -1,0 +1,10 @@
+<div class="category-wrapper">
+  <div class="search">
+    <mat-form-field>
+      <input (keyup)="toLocalStorageValue()" [(ngModel)]="searchText" matInput type="text" class="search__field" placeholder="Enter product name">
+    </mat-form-field>
+  </div>
+  <app-list [searchText]="searchText" [products]="products"></app-list>
+</div>
+
+

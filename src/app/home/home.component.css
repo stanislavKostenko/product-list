@@ -1,0 +1,38 @@
+.home-page {
+  min-width: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.home-page__list-wrapper {
+  max-width: 100%;
+  width: 100%;
+}
+
+app-list {
+  min-width: 80%;
+  width: 100%;
+}
+
+app-filter {
+  width: 20%;
+}
+
+.search {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.search__field {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  color: #8d8788;
+}
+
+mat-form-field {
+  width: 70%;
+  margin: 0 auto;
+}
