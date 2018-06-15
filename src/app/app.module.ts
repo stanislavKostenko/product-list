@@ -14,26 +14,15 @@ import { SearchPipe } from './pipes/searchPipe';
 import { AppComponent } from './app.component';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductsService } from './products.services/products.services';
-import { FilterComponent } from './filter/filter.component';
-import { HomeComponent } from './home/home.component';
 import { CategoryComponent } from './home/category/category.component';
 import { CanDeactivateGuardService } from './shared/can-deactivate-guard.service';
+import { HomeModule } from './home/home.module';
 
 
 
-const categoryChildrenRoute: Routes = [
-  {path: ':name', component: CategoryComponent},
-  {path: 'all', component: CategoryComponent},
-];
+
 
 const routes: Routes = [
-  {path: 'about', loadChildren: './about/about.module#AboutModule'},
-  {
-    path: 'categories',
-    component: HomeComponent,
-    children: categoryChildrenRoute,
-    canDeactivate: [CanDeactivateGuardService]
-  },
   {path: '', redirectTo: 'categories/all', pathMatch: 'full'},
 
 ];
@@ -50,14 +39,13 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MatCheckboxModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    HomeModule
   ],
   declarations: [
     AppComponent,
     SearchPipe,
     ProductsListComponent,
-    FilterComponent,
-    HomeComponent,
     CategoryComponent,
   ],
   providers: [ ProductsService, CanDeactivateGuardService ],

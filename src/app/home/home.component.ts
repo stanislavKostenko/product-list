@@ -3,6 +3,7 @@ import { ProductsService } from '../products.services/products.services';
 import { Products } from '../shared/product';
 import { CanComponentDeactivate } from '../shared/can-deactivate-guard.service';
 import { Observable } from 'rxjs/index';
+import { Categories } from '../shared/categories';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { Observable } from 'rxjs/index';
 export class HomeComponent implements OnInit, CanComponentDeactivate {
   public products: Products[];
   public categories;
-  public newCategories;
+  public newCategories: Categories[];
   constructor( private productsService: ProductsService) {
     this.categories = [];
     this.newCategories = [];

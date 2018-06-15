@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProductsService } from '../products.services/products.services';
+import { Categories } from '../shared/categories';
 
 @Component({
   selector: 'app-filter',
@@ -8,7 +9,7 @@ import { ProductsService } from '../products.services/products.services';
 })
 export class FilterComponent implements OnInit {
 
-  @Input() public newCategories;
+  @Input() public newCategories: Categories[];
   public searchParam: string = '';
   public classState: boolean = true;
   constructor(private productService: ProductsService) {

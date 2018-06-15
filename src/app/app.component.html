@@ -3,11 +3,8 @@
     <li routerLink="/" (click)="goToCategories()" class="nav__list-item">
       <a routerLink="/" class="nav__list-item__link">Home</a>
     </li>
-    <li [routerLink]="['categories', 'all']" class="nav__list-item">
-      <a [routerLink]="['categories', 'all']" class="nav__list-item__link">Categories</a>
-    </li>
-    <li [routerLink]="['about']" class="nav__list-item">
-      <a [routerLink]="['about']" class="nav__list-item__link">About</a>
+    <li routerLink="about" class="nav__list-item">
+      <a routerLink="about" class="nav__list-item__link">About</a>
     </li>
   </ul>
 </nav>
