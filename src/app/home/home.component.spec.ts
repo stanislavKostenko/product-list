@@ -10,15 +10,14 @@ import { ProductsListComponent } from '../products-list/products-list.component'
 import { SearchPipe } from '../pipes/searchPipe';
 import { ProductsService } from '../products.services/products.services';
 import { HttpClientModule } from '@angular/common/http';
-import { Products } from '../shared/product';
-import { Categories } from '../shared/categories';
 
 
 describe('HomeComponent', () => {
   let fixture: ComponentFixture<HomeComponent>;
   let component: HomeComponent;
-  let products: Products;
-  let categories: Categories;
+  let productsService: ProductsService;
+  let spy: jasmine.Spy;
+  let mockProducts = [];
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
@@ -41,6 +40,8 @@ describe('HomeComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
+    productsService = fixture.debugElement.injector.get(ProductsService);
+    spy = spyOn(productsService, 'products$').and.returnValue(mockProducts);
   });
 
   it('should create the component', () => {
@@ -56,25 +57,18 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
     component.products.forEach((item)=>{
       expect(item).toBeTruthy();
-      expect(item).toContain(products);
     });
   });
 
-  it('categories property should contain Categories interface', ()=>{
+  it('should call ProductsService', () => {
     fixture.detectChanges();
-    component.categories.forEach((item)=>{
-      expect(item).toBeTruthy();
-      expect(item).toContain(categories);
-    })
+    component.getProducts();
+    expect(spy.calls.any).toBeTruthy();
   });
 
-  it('newCategories property should contain unique categories', () => {
+  it('should set products', () => {
     fixture.detectChanges();
-    expect(component.newCategories).toBeDefined();
-    component.newCategories.forEach((item1)=>{
-      component.newCategories.forEach((item2)=>{
-        expect(item1.name).not.toBe(item2.name);
-      })
-    })
-  })
+    component.getProducts();
+    expect(component.products).toEqual(mockProducts);
+  });
 });

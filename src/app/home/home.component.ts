@@ -21,6 +21,10 @@ export class HomeComponent implements OnInit, CanComponentDeactivate {
   }
 
   ngOnInit() {
+    this.getProducts();
+  }
+
+  getProducts() {
     this.productsService.products$.subscribe((products)=>{
       this.products = products;
       this.fetchProductCategory();

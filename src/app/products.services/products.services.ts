@@ -31,7 +31,7 @@ export class ProductsService{
 
   private _save(products: Products[]) {
     this._store.products = products;
-    this._products$.next(Object.assign([],this._store).products)
+    this._products$.next(Object.assign([],this._store).products);
   }
 
   private _init() {
@@ -58,7 +58,7 @@ export class ProductsService{
     );
   }
 
-  toLocalStorage(el) {
+  static toLocalStorage(el) {
     localStorage.setItem('value', el);
   }
 }

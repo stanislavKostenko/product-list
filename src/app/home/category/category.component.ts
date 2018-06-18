@@ -57,7 +57,7 @@ export class CategoryComponent implements OnInit {
   }
 
   toLocalStorageValue() {
-    this.productsService.toLocalStorage(this.searchText);
+    ProductsService.toLocalStorage(this.searchText);
   }
 
   fetchLocalStorage() {

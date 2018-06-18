@@ -25,7 +25,11 @@ describe('FilterComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create filter component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('searchParam property should contain string', () => {
+    expect(component.searchParam).toBe(null);
   });
 });
