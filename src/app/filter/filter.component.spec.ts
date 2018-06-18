@@ -1,7 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FilterComponent } from './filter.component';
-import { HomeModule } from '../home/home.module';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ProductsService } from '../products.services/products.services';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 
 describe('FilterComponent', () => {
   let component: FilterComponent;
@@ -9,8 +12,9 @@ describe('FilterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [HomeModule],
-      declarations: [ FilterComponent ]
+      imports: [RouterTestingModule, HttpClientModule, BrowserDynamicTestingModule],
+      declarations: [FilterComponent],
+      providers: [ProductsService]
     })
     .compileComponents();
   }));

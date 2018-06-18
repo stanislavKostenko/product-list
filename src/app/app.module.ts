@@ -10,7 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { SearchPipe } from './pipes/searchPipe';
 
-
 import { AppComponent } from './app.component';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductsService } from './products.services/products.services';
@@ -19,12 +18,9 @@ import { CanDeactivateGuardService } from './shared/can-deactivate-guard.service
 import { HomeModule } from './home/home.module';
 
 
-
-
-
 const routes: Routes = [
+  {path: 'about', loadChildren: './about/about.module#AboutModule'},
   {path: '', redirectTo: 'categories/all', pathMatch: 'full'},
-
 ];
 
 
@@ -40,7 +36,7 @@ const routes: Routes = [
     MatCheckboxModule,
     MatListModule,
     MatMenuModule,
-    HomeModule
+    HomeModule,
   ],
   declarations: [
     AppComponent,

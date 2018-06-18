@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FilterComponent } from '../filter/filter.component';
 import { HomeComponent } from './home.component';
 import { CanDeactivateGuardService } from '../shared/can-deactivate-guard.service';
-import { Route, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { CategoryComponent } from './category/category.component';
 
 const categoryChildrenRoute: Routes = [
@@ -12,7 +12,6 @@ const categoryChildrenRoute: Routes = [
 ];
 
 const routes: Routes = [
-  {path: 'about', loadChildren: './about/about.module#AboutModule'},
   {
     path: 'categories',
     component: HomeComponent,
